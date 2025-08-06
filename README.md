@@ -63,12 +63,15 @@ GRANT SELECT ON your_database_name.Courses TO 'viewer_user'@'localhost';
 
 🚀 How to Run
 Open MySQL CLI or GUI (MySQL Workbench, phpMyAdmin, etc.).
+
 Execute the contents of department_course.sql.
+
 (Optional) Create the user if not already done:
 CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 
 
 🧠 Learning Objectives:
+
 ✅ Database Normalization (3NF)
 
 ✅ Foreign Key Relationships
