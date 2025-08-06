@@ -70,10 +70,15 @@ CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 
 🧠 Learning Objectives:
 ✅ Database Normalization (3NF)
+
 ✅ Foreign Key Relationships
+
 ✅ Aggregate Subqueries
+
 ✅ Data Control Language (DCL) – GRANT
+
 ✅ Unique Constraints
+
 ✅ Relational Schema Design
 
 
