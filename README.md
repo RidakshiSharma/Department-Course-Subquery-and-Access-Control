@@ -73,6 +73,7 @@ Execute the contents of department_course.sql.
 CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 
 
+
 🧠 Learning Objectives:
 
 ✅ Database Normalization (3NF)
