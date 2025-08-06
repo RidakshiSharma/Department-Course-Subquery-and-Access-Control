@@ -85,5 +85,4 @@ CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 ✅ Unique Constraints
 ✅ Relational Schema Design
 
-<img width="1305" height="528" alt="Screenshot 2025-08-06 173640" src="https://github.com/user-attachments/assets/790abf34-c97b-4b32-b245-d19510454498" />
 
