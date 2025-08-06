@@ -1,91 +1,95 @@
-# Department-Course-Subquery-and-Access-Control
-✅ Overview
-This SQL practice involves designing, normalizing, and interacting with a small academic database that manages departments and the courses they offer. The task is divided into four parts: schema creation, data insertion, subquery usage, and access control.
+# 📚 Department-Course-Subquery-and-Access-Control
+This SQL project demonstrates how to design a normalized academic database with departments and their offered courses, retrieve data using subqueries, and control data access using DCL.
 
-🔹 Part A: Create Department and Course Tables (Normalized to 3NF)
-Departments Table
+## ✅ Project Parts
 
-dept_id (Primary Key)
+### 🔹 Part A: Create Tables with 3NF Normalization
 
-dept_name (Unique, VARCHAR)
+**Tables:**
 
-Courses Table
+- `Departments`
+  - `dept_id` (INT, Primary Key)
+  - `dept_name` (VARCHAR, Unique)
+- `Courses`
+  - `course_id` (INT, Primary Key)
+  - `course_name` (VARCHAR)
+  - `dept_id` (Foreign Key → Departments)
 
-course_id (Primary Key)
+> Ensures each course is linked to exactly one department and avoids duplicate department names.
 
-course_name (VARCHAR)
+---
 
-dept_id (Foreign Key referencing Departments)
+### 🔹 Part B: Insert Sample Data
 
-Goal: Ensure that:
+- Adds **5 departments**:
+  - Computer Science, Electrical, Mechanical, Civil, Electronics
+- Adds **10+ courses**, at least **2 per department**.
 
-Each course belongs to exactly one department.
+> Example: DBMS, Operating Systems, Power Systems, Thermodynamics, etc.
 
-Department names are not duplicated.
+---
 
-Data model is in Third Normal Form (3NF).
+### 🔹 Part C: Retrieve Departments Offering More Than 2 Courses
 
-🔹 Part B: Insert Sample Data
-Insert at least 5 departments with names like:
+Uses a subquery to list department names with more than two courses:
 
-"Computer Science", "Electrical", "Mechanical", "Civil", "Electronics"
-
-Insert at least 10 courses with names like:
-
-"DBMS", "Operating Systems", "Power Systems", etc.
-
-Ensure: Each department has at least two courses linked via dept_id.
-
-🔹 Part C: Retrieve Departments Offering More Than Two Courses
-Use a subquery with GROUP BY and HAVING to identify departments with more than 2 courses.
-
-📌 Sample Query:
-sql
-Copy code
+```sql
 SELECT dept_name
 FROM Departments
 WHERE dept_id IN (
     SELECT dept_id
     FROM Courses
     GROUP BY dept_id
-    HAVING COUNT(*) > 2
+    HAVING COUNT(course_id) > 2
 );
-🔹 Part D: Grant SELECT Access Using DCL
-Allow a user named viewer_user to only read (SELECT) data from the Courses table.
 
-📌 DCL Command:
+🔹 Part D: Grant SELECT Access on Courses Table
+Grants read-only access to the Courses table for a user named viewer_user:
+
+
 sql
 Copy code
 GRANT SELECT ON your_database_name.Courses TO 'viewer_user'@'localhost';
-Replace your_database_name with the name of your actual database.
+Replace your_database_name with the actual name of your database.
 
-🛠️ Setup Instructions
-Open your MySQL/MariaDB client (e.g., MySQL CLI, phpMyAdmin, MySQL Workbench).
 
-Run the full SQL script provided to:
+🛠️ How to Run
+Open your MySQL CLI or GUI (phpMyAdmin, MySQL Workbench).
+
+Run the SQL script:
 
 Drop existing tables (if any)
 
-Create and populate tables
+Create Departments and Courses tables
 
-Perform the subquery
+Insert sample data
 
-Grant access to user
+Execute the subquery
+
+Grant SELECT access to viewer_user
+
+(Optional) Create the user with:
+
+sql
+Copy code
+CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 
 
-📂 File Structure (If you're using files)
+📂 File Structure
 pgsql
 Copy code
-.
-├── setup.sql         -- Full SQL script (all parts)
-├── README.md         -- Project instructions (this file)
+/Department-Course-Subquery-and-Access-Control
+├── department_course.sql      # Full SQL script with all parts (A–D)
+├── README.md                  # Project documentation
+
 
 🧠 Learning Objectives
-Practice data modeling using 3NF
+Database normalization (3NF)
 
-Implement foreign key constraints
+Foreign key constraints
 
-Write aggregate subqueries with GROUP BY and HAVING
+Aggregate subqueries using GROUP BY and HAVING
 
-Use DCL (GRANT) to control data access
+SQL DCL commands (GRANT)
 
+Secure and structured database design
