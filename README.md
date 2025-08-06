@@ -8,10 +8,6 @@ This SQL project involves creating a normalized academic database schema to mana
 ├── department_course.sql # Complete SQL script (Tables, Data, Subquery, DCL)
 ├── README.md # Project documentation
 
-yaml
-Copy code
-
-
 ## ✅ Overview
 
 ### 🔹 Part A: Create Tables with Normalization (3NF)
@@ -59,8 +55,6 @@ WHERE dept_id IN (
 Grants read-only access on the Courses table to a user named viewer_user.
 
 ✅ Command:
-sql
-Copy code
 GRANT SELECT ON your_database_name.Courses TO 'viewer_user'@'localhost';
 🔐 Replace your_database_name with your actual DB name.
 
@@ -71,9 +65,6 @@ Open MySQL CLI or GUI (MySQL Workbench, phpMyAdmin, etc.).
 Execute the contents of department_course.sql.
 
 (Optional) Create the user if not already done:
-
-sql
-Copy code
 CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 
 
