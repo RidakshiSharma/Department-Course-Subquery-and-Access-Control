@@ -57,11 +57,13 @@ WHERE dept_id IN (
 Grants read-only access on the Courses table to a user named viewer_user.
 
 ✅ Command:
+
 GRANT SELECT ON your_database_name.Courses TO 'viewer_user'@'localhost';
 🔐 Replace your_database_name with your actual DB name.
 
 
 🚀 How to Run
+
 Open MySQL CLI or GUI (MySQL Workbench, phpMyAdmin, etc.).
 
 Execute the contents of department_course.sql.
