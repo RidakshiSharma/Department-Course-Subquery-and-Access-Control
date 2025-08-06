@@ -2,8 +2,6 @@
 
 This SQL project involves creating a normalized academic database schema to manage departments and the courses they offer. It includes sample data insertion, a subquery to extract specific insights, and a Data Control Language (DCL) command to restrict data access.
 
----
-
 ## 📂 Project Structure
 
 /Department-Course-Subquery-and-Access-Control
@@ -13,7 +11,6 @@ This SQL project involves creating a normalized academic database schema to mana
 yaml
 Copy code
 
----
 
 ## ✅ Overview
 
@@ -34,7 +31,6 @@ Defines two normalized tables:
 > ✅ Department names are unique  
 > ✅ Data model follows **Third Normal Form (3NF)**
 
----
 
 ### 🔹 Part B: Insert Sample Data
 
@@ -44,7 +40,6 @@ Inserts:
 
 > 🔗 All courses are properly linked to their departments using foreign keys.
 
----
 
 ### 🔹 Part C: Subquery — Departments Offering More Than 2 Courses
 
@@ -82,7 +77,7 @@ Copy code
 CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 
 
-🧠 Concepts Covered
+🧠 Learning Objectives:
 ✅ Database Normalization (3NF)
 ✅ Foreign Key Relationships
 ✅ Aggregate Subqueries
