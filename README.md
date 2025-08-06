@@ -1,38 +1,56 @@
-# 📚 Department-Course-Subquery-and-Access-Control
-This SQL project demonstrates how to design a normalized academic database with departments and their offered courses, retrieve data using subqueries, and control data access using DCL.
+# 📘 Department-Course-Subquery-and-Access-Control
 
-## ✅ Project Parts
+This SQL project involves creating a normalized academic database schema to manage departments and the courses they offer. It includes sample data insertion, a subquery to extract specific insights, and a Data Control Language (DCL) command to restrict data access.
 
-### 🔹 Part A: Create Tables with 3NF Normalization
+---
 
-**Tables:**
+## 📂 Project Structure
 
-- `Departments`
-  - `dept_id` (INT, Primary Key)
-  - `dept_name` (VARCHAR, Unique)
-- `Courses`
-  - `course_id` (INT, Primary Key)
-  - `course_name` (VARCHAR)
-  - `dept_id` (Foreign Key → Departments)
+/Department-Course-Subquery-and-Access-Control
+├── department_course.sql # Complete SQL script (Tables, Data, Subquery, DCL)
+├── README.md # Project documentation
 
-> Ensures each course is linked to exactly one department and avoids duplicate department names.
+yaml
+Copy code
+
+---
+
+## ✅ Overview
+
+### 🔹 Part A: Create Tables with Normalization (3NF)
+
+Defines two normalized tables:
+
+#### 🗃️ Departments
+- `dept_id` (INT, Primary Key)
+- `dept_name` (VARCHAR(50), Unique)
+
+#### 📘 Courses
+- `course_id` (INT, Primary Key)
+- `course_name` (VARCHAR(100))
+- `dept_id` (INT, Foreign Key referencing Departments)
+
+> ✅ Each course belongs to exactly one department  
+> ✅ Department names are unique  
+> ✅ Data model follows **Third Normal Form (3NF)**
 
 ---
 
 ### 🔹 Part B: Insert Sample Data
 
-- Adds **5 departments**:
-  - Computer Science, Electrical, Mechanical, Civil, Electronics
-- Adds **10+ courses**, at least **2 per department**.
+Inserts:
+- **5 departments**: Computer Science, Electrical, Mechanical, Civil, Electronics
+- **10 courses**: 2 per department (e.g., DBMS, Power Systems, Thermodynamics, etc.)
 
-> Example: DBMS, Operating Systems, Power Systems, Thermodynamics, etc.
+> 🔗 All courses are properly linked to their departments using foreign keys.
 
 ---
 
-### 🔹 Part C: Retrieve Departments Offering More Than 2 Courses
+### 🔹 Part C: Subquery — Departments Offering More Than 2 Courses
 
-Uses a subquery to list department names with more than two courses:
+Retrieves names of departments that offer **more than two courses** using a `GROUP BY` and `HAVING` clause inside a subquery.
 
+#### ✅ Query:
 ```sql
 SELECT dept_name
 FROM Departments
@@ -42,54 +60,32 @@ WHERE dept_id IN (
     GROUP BY dept_id
     HAVING COUNT(course_id) > 2
 );
+🔹 Part D: Grant SELECT Access (DCL)
+Grants read-only access on the Courses table to a user named viewer_user.
 
-🔹 Part D: Grant SELECT Access on Courses Table
-Grants read-only access to the Courses table for a user named viewer_user:
-
-
+✅ Command:
 sql
 Copy code
 GRANT SELECT ON your_database_name.Courses TO 'viewer_user'@'localhost';
-Replace your_database_name with the actual name of your database.
+🔐 Replace your_database_name with your actual DB name.
 
 
-🛠️ How to Run
-Open your MySQL CLI or GUI (phpMyAdmin, MySQL Workbench).
+🚀 How to Run
+Open MySQL CLI or GUI (MySQL Workbench, phpMyAdmin, etc.).
 
-Run the SQL script:
+Execute the contents of department_course.sql.
 
-Drop existing tables (if any)
-
-Create Departments and Courses tables
-
-Insert sample data
-
-Execute the subquery
-
-Grant SELECT access to viewer_user
-
-(Optional) Create the user with:
+(Optional) Create the user if not already done:
 
 sql
 Copy code
 CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 
 
-📂 File Structure
-pgsql
-Copy code
-/Department-Course-Subquery-and-Access-Control
-├── department_course.sql      # Full SQL script with all parts (A–D)
-├── README.md                  # Project documentation
-
-
-🧠 Learning Objectives
-Database normalization (3NF)
-
-Foreign key constraints
-
-Aggregate subqueries using GROUP BY and HAVING
-
-SQL DCL commands (GRANT)
-
-Secure and structured database design
+🧠 Concepts Covered
+✅ Database Normalization (3NF)
+✅ Foreign Key Relationships
+✅ Aggregate Subqueries
+✅ Data Control Language (DCL) – GRANT
+✅ Unique Constraints
+✅ Relational Schema Design
