@@ -72,17 +72,14 @@ Perform the subquery
 
 Grant access to user
 
-(Optional) Create the user using:
 
-sql
-Copy code
-CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 📂 File Structure (If you're using files)
 pgsql
 Copy code
 .
 ├── setup.sql         -- Full SQL script (all parts)
 ├── README.md         -- Project instructions (this file)
+
 🧠 Learning Objectives
 Practice data modeling using 3NF
 
