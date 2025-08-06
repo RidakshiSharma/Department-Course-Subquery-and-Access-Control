@@ -41,8 +41,8 @@ Inserts:
 
 Retrieves names of departments that offer **more than two courses** using a `GROUP BY` and `HAVING` clause inside a subquery.
 
+
 #### ✅ Query:
-```sql
 SELECT dept_name
 FROM Departments
 WHERE dept_id IN (
@@ -51,6 +51,8 @@ WHERE dept_id IN (
     GROUP BY dept_id
     HAVING COUNT(course_id) > 2
 );
+
+
 🔹 Part D: Grant SELECT Access (DCL)
 Grants read-only access on the Courses table to a user named viewer_user.
 
@@ -61,9 +63,7 @@ GRANT SELECT ON your_database_name.Courses TO 'viewer_user'@'localhost';
 
 🚀 How to Run
 Open MySQL CLI or GUI (MySQL Workbench, phpMyAdmin, etc.).
-
 Execute the contents of department_course.sql.
-
 (Optional) Create the user if not already done:
 CREATE USER 'viewer_user'@'localhost' IDENTIFIED BY 'password';
 
