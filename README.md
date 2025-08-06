@@ -56,6 +56,7 @@ WHERE dept_id IN (
 🔹 Part D: Grant SELECT Access (DCL)
 Grants read-only access on the Courses table to a user named viewer_user.
 
+
 ✅ Command:
 
 GRANT SELECT ON your_database_name.Courses TO 'viewer_user'@'localhost';
